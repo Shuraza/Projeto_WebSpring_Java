@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Animais Disponíveis para Adoção </h1>
+
+<form action="/animais" method="post">
+    Nome: <input type="text" name="nome" required>
+    Espécie: <input type="text" name="especie" required>
+    Raça: <input type="text" name="raca">
+    Idade: <input type="number" name="idade">
+    Sexo: <input type="text" name="sexo">
+    Adotado: <input type="checkbox" name="adotado">
+    <button type="submit">Cadastrar</button>
+</form>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Espécie</th>
+        <th>Raça</th>
+        <th>Idade</th>
+        <th>Sexo</th>
+        <th>Adotado</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="animal : ${animais}">
+        <td th:text="${animal.nome}"></td>
+        <td th:text="${animal.especie}"></td>
+        <td th:text="${animal.raca}"></td>
+        <td th:text="${animal.idade}"></td>
+        <td th:text="${animal.sexo}"></td>
+        <td th:text="${animal.adotado}"></td>
+        <td><a th:href="@{'/animais/excluir/' + ${animal.id}}">Excluir</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
