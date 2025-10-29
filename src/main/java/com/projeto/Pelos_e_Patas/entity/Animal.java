@@ -18,7 +18,15 @@ public class Animal {
     private String idade;
     private String sexo;
     private boolean adotado;
+    private String foto;
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Long getId() {
         return id;

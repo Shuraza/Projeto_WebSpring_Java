@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Animal</title>
+    <link rel="stylesheet" href="/animais-editar.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/img/PP.png" alt="Logo Pelos & Patas">
+    </div>
+    <nav>
+        <a href="/index">Home</a>
+        <a href="/animais">Animais</a>
+        <a href="/animais/cadastrar">Cadastrar</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Editar Animal</h2>
+
+    <form action="/animais/atualizar" method="post" class="form-editar">
+        <input type="hidden" name="id" th:value="${animal.id}">
+
+        <label>Nome:</label>
+        <input type="text" name="nome" th:value="${animal.nome}" required>
+
+        <label>Espécie:</label>
+        <input type="text" name="especie" th:value="${animal.especie}" required>
+
+        <label>Raça:</label>
+        <input type="text" name="raca" th:value="${animal.raca}">
+
+        <label>Idade:</label>
+        <input type="text" name="idade" th:value="${animal.idade}">
+
+        <label>Sexo:</label>
+        <input type="text" name="sexo" th:value="${animal.sexo}">
+
+        <label>Adotado:</label>
+        <input type="checkbox" name="adotado" th:checked="${animal.adotado}">
+
+        <label>Link da Foto:</label>
+        <input type="text" name="foto" th:value="${animal.foto}">
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</main>
+</body>
+</html>
